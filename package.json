@@ -1,0 +1,33 @@
+{
+  "name": "blug",
+  "version": "0.0.1",
+  "description": "Nice debug/dump function",
+  "author": {
+    "name": "Ricardo Ferro",
+    "email": "ricardo.ferro@gmail.com"
+  },
+  "homepage": "https://github.com/rferro/blug",
+  "bugs": "https://github.com/rferro/blug/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rferro/blug"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "keywords": [
+    "console",
+    "debug",
+    "dbg",
+    "inspect",
+    "log"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.9.3"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "lodash": "^3.10.1"
+  }
+}
