@@ -1,4 +1,10 @@
 
+0.1.1 / 2015-08-17
+==================
+
+* d55db02 - Fix package.json
+* 3dc43c5 - Update package.json and History
+
 0.1.0 / 2015-08-17
 ==================
 
