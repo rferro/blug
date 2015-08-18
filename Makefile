@@ -4,4 +4,4 @@
 all: build
 
 build:
-	node_modules/.bin/coffee -cb --no-header index.coffee
+	node_modules/.bin/coffee -cb --no-header -o lib src
