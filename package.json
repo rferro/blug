@@ -22,7 +22,7 @@
     "dbg",
     "inspect",
     "log",
-    "dump"
+    "dump",
     "color"
   ],
   "license": "MIT",
