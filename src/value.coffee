@@ -5,7 +5,7 @@ theme    = require('./theme')
 module.exports = (value) ->
   if _.isFunction value
     type  = 'function'
-    value = theme.function '[Function]'
+    value = theme.function 'function'
   else if _.isRegExp value
     type  = 'regexp'
     value = theme.regexp value.toString()
@@ -19,16 +19,19 @@ module.exports = (value) ->
     type  = 'undefined'
     value = theme.undefined 'undefined'
   else if _.isObject value
-    if Buffer.isBuffer value
+    if value.__circular
+      type  = 'circular'
+      value = theme.circular("@#{value.__circular.join('.')}")
+    else if Buffer.isBuffer value
       type  = 'buffer'
-      value = theme.buffer "Buffer(#{value.length})"
+      value = theme.buffer "buffer(#{value.length})"
     else
       type = 'object'
 
       if _.isEmpty value
         value = theme.object.empty '{}'
       else
-        value = theme.object.valid '[Object ...]'
+        value = theme.object.valid '{...}'
   else if _.isString value
     type  = 'string'
     value = value
