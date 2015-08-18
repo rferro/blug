@@ -4,26 +4,26 @@ colors = require('colors')
 module.exports =
   bar: colors.bgBlue
   name: colors.white.bold
-  circular: colors.cyan
-  null: colors.magenta
+  circular: colors.red.bold
+  null: colors.magenta.bold
   array:
-    bracket: colors.white
-    empty: colors.cyan
-  buffer: colors.blue
+    bracket: colors.cyan.bold
+    empty: colors.cyan.bold
+  buffer: colors.blue.bold
   string:
-    value: colors.blue
+    value: colors.blue.bold
     quote: colors.white
-    nl: colors.white
+    nl: colors.white.bold
   object:
-    valid: colors.cyan
-    empty: colors.cyan
-  number: colors.yellow
+    valid: colors.cyan.bold
+    empty: colors.cyan.bold
+  number: colors.yellow.bold
   boolean:
-    true: colors.green
-    false: colors.red
-  function: colors.cyan
-  undefined: colors.magenta
-  other: colors.bgWhite.black
+    true: colors.bgGreen.white.bold
+    false: colors.bgRed.white.bold
+  function: colors.green.bold
+  undefined: colors.magenta.bold
+  other: colors.bgWhite.black.bold
   dots: colors.white
   tabs: colors.white
-  regexp: colors.cyan
+  regexp: colors.yellow.bold
