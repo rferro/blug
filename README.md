@@ -2,6 +2,8 @@
 
 Nice debug/dump function
 
+![Screenshot](https://raw.githubusercontent.com/rferro/blug/master/screenshot.jpg)
+
 ## Install
 
 ```shell
