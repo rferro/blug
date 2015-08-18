@@ -1,6 +1,6 @@
 {
   "name": "blug",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Nice debug/dump function",
   "author": {
     "name": "Ricardo Ferro",
@@ -21,7 +21,9 @@
     "debug",
     "dbg",
     "inspect",
-    "log"
+    "log",
+    "dump"
+    "color"
   ],
   "license": "MIT",
   "devDependencies": {

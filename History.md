@@ -1,5 +1,18 @@
 
+0.1.0 / 2015-08-17
+==================
+
+ * e97907b - Create screenshot and update readme
+ * 0c53df4 - Update History and README
+ * 6c09127 - Update Makefile to new folders
+ * 4bc689a - Create coffeelint.json
+ * acd0406 - Fixes and folders src and lib
+ * 6aea45b - Update .npmignore
+ * 6c99aa6 - Fix package.json
+ * de36e30 - New test
+ * 9c26010 - First version
+
 0.0.1 / 2015-08-17
 ==================
 
- * First version
+ * 9c26010 - First version
