@@ -1,4 +1,11 @@
 
+0.1.2 / 2015-08-18
+==================
+
+ * cd9effd - Improvements circular objects
+ * 8f8461b - New theme colors
+ * c35b0c6 - New test
+
 0.1.1 / 2015-08-17
 ==================
 
