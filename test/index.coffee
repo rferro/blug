@@ -1,5 +1,5 @@
 
-nice = require('../src')
+blug = require('../src')
 
 fn = ->
 fn.a = ->
@@ -27,6 +27,9 @@ o =
     a: {}
     b: null
     fn: fn
+    c:
+      d:
+        e: 1
   _array:
     a: [1, 2]
     b: []
@@ -36,4 +39,4 @@ o._array.c = a: o._array, b: o
 o.circ = o
 o._array.circ2 = o._array
 
-nice.max(4) o, (->), {}, "a", a:{b:(->),c:(->)}, fn, /^a/g, 100
+blug o, (->), {}, "a", a:{b:(->),c:(->)}, fn, /^a/g, 100, [1,2,3]
