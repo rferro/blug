@@ -1,5 +1,5 @@
 
-nice = require('../index.coffee')
+nice = require('../src')
 
 fn = ->
 fn.a = ->
@@ -33,5 +33,7 @@ o =
   _regexp: /^.$/g
 
 o._array.c = a: o._array, b: o
+o.circ = o
+o._array.circ2 = o._array
 
-nice.max(1) o, (->), {}, "a", a:{b:(->),c:(->)}, fn, /^a/g, 100
+nice.max(4) o, (->), {}, "a", a:{b:(->),c:(->)}, fn, /^a/g, 100
