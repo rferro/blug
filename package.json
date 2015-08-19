@@ -1,6 +1,6 @@
 {
   "name": "blug",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Nice debug/dump function",
   "author": {
     "name": "Ricardo Ferro",

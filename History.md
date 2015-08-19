@@ -1,4 +1,9 @@
 
+0.2.2 / 2015-08-19
+==================
+
+ * 656bb86 - Create blug.middleware() do debug express/connect request/response
+
 0.2.1 / 2015-08-19
 ==================
 
