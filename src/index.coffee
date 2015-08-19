@@ -21,7 +21,7 @@ show = (data, level = 0, stack = [], names = [], max = null) ->
     stack.push [data, names]
 
     if toType(data) is 'function'
-      process.stdout.write toValue(data).value
+      process.stdout.write ' ' + toValue(data).value
 
     if level > 0
       process.stdout.write '\n'
@@ -32,11 +32,11 @@ show = (data, level = 0, stack = [], names = [], max = null) ->
       process.stdout.write theme.array.bracket '[' if data instanceof Array
       process.stdout.write theme.name(name)
       process.stdout.write theme.array.bracket ']' if data instanceof Array
-      process.stdout.write theme.dots(': ')
+      process.stdout.write theme.dots(':')
 
       stack.concat show value, level + 1, stack, names.slice(0).concat(name), max
   else
-    process.stdout.write toValue(data).value + '\n'
+    process.stdout.write ' ' + toValue(data).value + '\n'
 
   stack
 
