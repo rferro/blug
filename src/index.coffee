@@ -1,7 +1,9 @@
 
-toType  = require('./toType')
-toValue = require('./toValue')
-theme   = require('./theme')
+onFinished = require('on-finished')
+
+toType     = require('./toType')
+toValue    = require('./toValue')
+theme      = require('./theme')
 
 show = (data, level = 0, stack = [], names = [], max = null) ->
   if level is 0
@@ -40,10 +42,34 @@ show = (data, level = 0, stack = [], names = [], max = null) ->
 
   stack
 
-blug = -> for value,i in Array::slice.call(arguments)
+module.exports = blug = -> for value,i in Array::slice.call(arguments)
   show value
 
 blug.max = (maxLevel) -> -> for value,i in Array::slice.call(arguments)
   show value, null, null, null, maxLevel
 
-module.exports = blug
+blug.middleware = (maxLevel) -> (req, res, next) ->
+  onFinished res, ->
+    headers = {}
+
+    for header in res._header.trim().split('\n').slice(1)
+      header = header.trim().split(/\s*:\s*/)
+      headers[header[0]] = header[1]
+
+    blug.max(maxLevel)(
+      request:
+        ip:      req.ip
+        method:  req.method
+        url:     req.originalUrl
+        headers: req.headers
+        params:  req.params
+        body:    req.body
+        files:   req.files
+        file:    req.file
+        query:   req.query
+      response:
+        status:  "#{res.statusCode} #{res.statusMessage}"
+        headers: headers
+    )
+
+  next()
