@@ -1,4 +1,10 @@
 
+0.2.0 / 2015-08-19
+==================
+
+ * 10ca2af - Update README
+ * cb64663 - Remove lodash and use toType internal function, and many improvements
+
 0.1.2 / 2015-08-18
 ==================
 
