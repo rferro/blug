@@ -1,4 +1,9 @@
 
+0.2.1 / 2015-08-19
+==================
+
+ * a3d7d41 - Fix unnecessary space in objects
+
 0.2.0 / 2015-08-19
 ==================
 
@@ -15,8 +20,8 @@
 0.1.1 / 2015-08-17
 ==================
 
-* d55db02 - Fix package.json
-* 3dc43c5 - Update package.json and History
+ * d55db02 - Fix package.json
+ * 3dc43c5 - Update package.json and History
 
 0.1.0 / 2015-08-17
 ==================
