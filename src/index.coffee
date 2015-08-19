@@ -1,27 +1,27 @@
 
-_        = require('lodash')
-getValue = require('./value')
-theme    = require('./theme')
+toType  = require('./toType')
+toValue = require('./toValue')
+theme   = require('./theme')
 
 show = (data, level = 0, stack = [], names = [], max = null) ->
   if level is 0
     obj = {}
-    obj[getValue(data).type] = data
+    obj[toValue(data).type] = data
     data = obj
 
-  stack_index = _.findIndex stack, (item) -> item[0] is data
+  circular = false
 
-  if stack_index isnt -1
-    data = __circular: stack[stack_index][1]
-    circular = true
-  else
-    circular = false
+  for item in stack
+    if item[0] is data
+      data     = __circular: item[1].slice(1)
+      circular = true
+      break
 
-  if not circular and (not max or level < max) and ((_.isObject(data) and not _.isNull(data) and not Buffer.isBuffer(data) and not _.isEmpty(data)) or _.isFunction(data))
+  if not circular and (not max or level < max) and ((toType(data) is 'object' and Object.keys(data).length) or (toType(data) is 'array' and data.length) or toType(data) is 'function')
     stack.push [data, names]
 
-    if _.isFunction(data)
-      process.stdout.write getValue(data).value
+    if toType(data) is 'function'
+      process.stdout.write toValue(data).value
 
     if level > 0
       process.stdout.write '\n'
@@ -36,14 +36,14 @@ show = (data, level = 0, stack = [], names = [], max = null) ->
 
       stack.concat show value, level + 1, stack, names.slice(0).concat(name), max
   else
-    process.stdout.write getValue(data).value + '\n'
+    process.stdout.write toValue(data).value + '\n'
 
   stack
 
 blug = -> for value,i in Array::slice.call(arguments)
   show value
 
-blug.max = (max_level) -> -> for value,i in Array::slice.call(arguments)
-  show value, null, null, null, max_level
+blug.max = (maxLevel) -> -> for value,i in Array::slice.call(arguments)
+  show value, null, null, null, maxLevel
 
 module.exports = blug

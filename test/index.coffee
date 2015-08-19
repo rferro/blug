@@ -29,9 +29,10 @@ o =
     fn: fn
     c:
       d:
-        e: 1
+        e:
+          f: 1
   _array:
-    a: [1, 2]
+    a: [1, 2, undefined]
     b: []
   _regexp: /^.$/g
 
@@ -39,4 +40,4 @@ o._array.c = a: o._array, b: o
 o.circ = o
 o._array.circ2 = o._array
 
-blug o, (->), {}, "a", a:{b:(->),c:(->)}, fn, /^a/g, 100, [1,2,3]
+blug.max(5) o, (->), {}, "a", a:{b:(->),c:(->)}, fn, /^a/g, 100, [1,2]
