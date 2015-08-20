@@ -1,43 +1,50 @@
 
 blug = require('../src')
 
-fn = ->
-fn.a = ->
-fn.b = 2
-fn.prototype.a = 2
-fn.a.a = 2
+test_circular =
+  a: {}
 
-o =
-  _a: 1
-  _string:
+test_circular.a.a1 = test_circular.a
+test_circular.b = test_circular
+
+test_function =
+  a: ->
+
+test_function.a.b = 1
+test_function.a.c = 1
+
+tests =
+  test_boolean:
+    a: true
+    b: false
+  test_array:
+    a: []
+    b: [1]
+    c: [1,2]
+  test_string:
     a: ""
     b: "foo bar"
-    buffer:
-      a: new Buffer(0)
-      b: new Buffer("foo bar")
-  _number:
+    c: "foo\nbar"
+  test_number:
     a: 1
-    b: 2.2
+    b: 1.2
     c: NaN
-    d: Infinity
-  _boolean:
-    true:  true
-    false: false
-  _object:
+    c: Infinity
+  test_buffer:
+    a: new Buffer(0)
+    b: new Buffer(1)
+  test_regexp:
+    a: /./
+    b: /./g
+    c: /./i
+  test_object:
     a: {}
-    b: null
-    fn: fn
-    c:
-      d:
-        e:
-          f: 1
-  _array:
-    a: [1, 2, undefined]
-    b: []
-  _regexp: /^.$/g
+    b: { b1: { b2: { b3: { b4: { b5: {} } } } } }
+  test_circular: test_circular
+  test_null:
+    a: null
+  test_undefined:
+    a: undefined
+  test_function: test_function
 
-o._array.c = a: o._array, b: o
-o.circ = o
-o._array.circ2 = o._array
-
-blug.max(5) o, (->), {}, "a", a:{b:(->),c:(->)}, fn, /^a/g, 100, [1,2]
+blug tests, [], 1, false
